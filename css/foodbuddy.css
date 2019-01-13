@@ -3,6 +3,76 @@
 */
 
 .foodbuddy_logo {
-  display: block;
-  margin: auto;
+	display: block;
+	margin: auto;
+}
+
+.profile-img {
+	height: 35px;
+}
+
+.nav-link {
+	display: inline;
+	color: black !important;
+}
+
+.search-icon {
+	padding-top: 12px;
+}
+
+/*
+* Dashboard Syles
+*/
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.dashboard-container{
+	padding: 20px 25px;
+	border: 1px solid #f9f9f9;
+}
+
+.expires {
+	background-color: #f9f9f9;
+}
+
+.page-content{
+	padding-left: 280px !important;
+}
+
+.page-wrapper .page-content > div {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.hero-header {
+	font-weight: 500;
+    font-size: 2rem;
+    padding: 0px 10px;
+}
+
+.description {
+	font-weight: 500;
+    padding: 0px 10px;
+    padding-bottom: 10px;
+}
+
+.sub-header{
+	color: #6c7b88;
+    font-size: 14px;
+    padding: 5px 10px 0px 10px;
+    text-transform: uppercase;
+}
+
+.table-header{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
+.table-data{
+	color: #6c7b88;
+	font-size: 14px;
+    font-weight: bold;
 }

@@ -14,46 +14,28 @@ function (data) {
 
 // Websocket JS
 
-var foodbuddySocket = new WebSocket("ws://www.example.com/socketserver", "protocolOne");
+var foodbuddySocket = new WebSocket("ws://192.168.1.13:8000");
 
 foodbuddySocket.onmessage = function (event) {
   console.log(event.data);
 }
 
-exampleSocket.onmessage = function(event) {
-  var f = document.getElementById("chatbox").contentDocument;
-  var item = "";
-  var weight = JSON.parse(event.data);
-  var time = new Date(msg.date);
-  var timeStr = time.toLocaleTimeString();
-  
-  switch(msg.type) {
-    case "id":
-      clientID = msg.id;
-      setUsername();
-      break;
-    case "username":
-      text = "<b>User <em>" + msg.name + "</em> signed in at " + timeStr + "</b><br>";
-      break;
-    case "message":
-      text = "(" + timeStr + ") <b>" + msg.name + "</b>: " + msg.text + "<br>";
-      break;
-    case "rejectusername":
-      text = "<b>Your username has been set to <em>" + msg.name + "</em> because the name you chose is in use.</b><br>"
-      break;
-    case "userlist":
-      var ul = "";
-      for (i=0; i < msg.users.length; i++) {
-        ul += msg.users[i] + "<br>";
-      }
-      document.getElementById("userlistbox").innerHTML = ul;
-      break;
-  }
-  
-  if (text.length) {
-    f.write(text);
-    document.getElementById("chatbox").contentWindow.scrollByPages(1);
-  }
-};
+foodbuddySocket.onmessage = function (event) {
+    var data = JSON.parse(event.data);
+    var weight = parseInt(data.weight);
+    weight = (data.weight/72);
+    var date = new Date(data.timestamp);
+    date = date.toDateString();
 
-foodbuddySocket.close();
+    if (weight > 0) { 
+        var tr = $('<tr/>').attr('id', 'item-' + data.item);
+        tr.append("<th>" + data.item + "</th>");
+        tr.append("<td>" + weight.toFixed(1) + " lb" + "</td>");
+        tr.append("<td>" + date + "</td>");
+        tr.append("<td>" + "5 Days" + "</td>")
+        $(".ingredients_container").append(tr);
+    } else {
+      $('#item-' + data.item).remove();
+    };
+}
+

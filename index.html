@@ -384,28 +384,17 @@
                     <div class="dashboard-container col-md-6">
                       <h2>Ingredients</h2>
                       <p>Ingredients from your fridge will display here.</p>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <p class="table-header">Food</p>
-                          <p class="table-data">Apple</p>
-                          <p class="table-data">Orange</p>
-                        </div>
-                        <div class="col-md-3">
-                          <p class="table-header">Amount</p>
-                          <p class="table-data">4oz</p>
-                          <p class="table-data">8oz</p>
-                        </div>
-                        <div class="col-md-3">
-                          <p class="table-header">Date Added</p>
-                          <p class="table-data">1/13/2019</p>
-                          <p class="table-data">1/13/2019</p>
-                        </div>
-                        <div class="col-md-3">
-                          <p class="table-header">Expires</p>
-                          <p class="table-data">4 days</p>
-                          <p class="table-data">7 days</p>
-                        </div>
-                      </div>
+                      <table class="table">
+                        <thead>
+                         <tr>
+                          <th scope="col">Ingredient</th>
+                          <th scope="col">Amount</th>
+                          <th scope="col">Date Added</th>
+                          <th scope="col">Expires</th>
+                         </tr>
+                        </thead>
+                        <tbody class="ingredients_container">
+                        </tbody>
                     </div>
                     <div class="dashboard-container col-md-6">
                         <h2>Recipes</h2>
@@ -434,7 +423,7 @@
 
 
     <script src="js/main.js"></script>
-    <!-- <script src="js/foodbuddy.js"></script> -->
+    <script src="js/foodbuddy.js"></script>
 
 </body>
 
